@@ -1,0 +1,9 @@
+[03-02-2011]	endsley
+I have kids at home who love to stay up very late or dont like to do chores around the house. The Internet is the greatest bribe I have. Since we dont have TV and our oldest is an avid XBoxer, and Internet access provides motivation. I'm a Linux Admin at home & work, and managing my Linux based firewall helps keep my skills in shape. I want an easy way to turn on/off access to computers, iPhone, games, roku, etc.... It should be web based, work with IPTables, be fancy and look good on the iPhone, CLI compatible, and robust. My firewall is also my experiment box. It runs apache, mysql, postfix, a couple KVM instances, DNS, dhcpd, basically everything for a home network and then some (Gentoo box). I want those eventually managed by an easy interface.
+
+TODO for v 0.5:
+Clean up current IPtable setup scripts (Bash based)
+Script br0 setup for KVM isntances. Gentoo does most of this. I have my own tweaks added.
+Setup apache/php on dev box [DONE]
+
+
