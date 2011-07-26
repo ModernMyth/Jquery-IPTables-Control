@@ -26,31 +26,88 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/ `webtables` /*!40100 DEFAULT CHARACTER 
 USE `webtables`;
 
 --
--- Table structure for table `Groups`
+-- Table structure for table `chains`
 --
 
-DROP TABLE IF EXISTS `Groups`;
+DROP TABLE IF EXISTS `chains`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Groups` (
+CREATE TABLE `chains` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `groupid` int(11) DEFAULT NULL,
-  `groupname` varchar(255) COLLATE latin1_general_ci DEFAULT 'No Group Name',
+  `chainid` int(11) DEFAULT NULL,
+  `chainname` varchar(255) COLLATE latin1_general_ci DEFAULT 'No Group Name',
   `position` int(11) DEFAULT NULL COMMENT 'Position in the table',
   `command` varchar(255) COLLATE latin1_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `groupid` (`groupid`),
-  KEY `groupname` (`groupname`)
+  KEY `chainname` (`chainname`),
+  KEY `chainid` (`chainid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Groups`
+-- Dumping data for table `chains`
 --
 
-LOCK TABLES `Groups` WRITE;
-/*!40000 ALTER TABLE `Groups` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Groups` ENABLE KEYS */;
+LOCK TABLES `chains` WRITE;
+/*!40000 ALTER TABLE `chains` DISABLE KEYS */;
+/*!40000 ALTER TABLE `chains` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ipcron`
+--
+
+DROP TABLE IF EXISTS `ipcron`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ipcron` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cronid` int(11) DEFAULT NULL,
+  `cronname` varchar(255) COLLATE latin1_general_ci DEFAULT NULL,
+  `croncmd` varchar(255) COLLATE latin1_general_ci DEFAULT NULL,
+  `minute` int(11) DEFAULT NULL,
+  `hour` int(11) DEFAULT NULL,
+  `dow` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `cronid` (`cronid`),
+  KEY `cronname` (`cronname`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ipcron`
+--
+
+LOCK TABLES `ipcron` WRITE;
+/*!40000 ALTER TABLE `ipcron` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ipcron` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `iptables`
+--
+
+DROP TABLE IF EXISTS `iptables`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `iptables` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tableid` int(11) DEFAULT NULL,
+  `tablename` varchar(255) COLLATE latin1_general_ci DEFAULT NULL,
+  `position` int(11) DEFAULT NULL,
+  `chainid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `tableid` (`tableid`,`tablename`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `iptables`
+--
+
+LOCK TABLES `iptables` WRITE;
+/*!40000 ALTER TABLE `iptables` DISABLE KEYS */;
+/*!40000 ALTER TABLE `iptables` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -62,4 +119,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-07-21 23:19:09
+-- Dump completed on 2011-07-25 22:11:56
